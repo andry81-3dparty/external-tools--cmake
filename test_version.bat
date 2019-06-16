@@ -4,44 +4,25 @@ setlocal
 
 set "TEST_ROOT=%~dp0"
 
-set TEST_CMAKE_TOOLSET_LIST=^
-kitware/win32 "3.14.0/bin|3.14.5/bin" ^
-kitware/win64 "3.14.0/bin|3.14.5/bin"
+set "CONFIG_FILE_IN=%TEST_ROOT%\versions.lst"
 
-set TOOLSET_LIST_INDEX=0
-for %%i in (%TEST_CMAKE_TOOLSET_LIST%) do (
-  set FIELD_VALUE=%%i
-  call :PROCESS_FIELD_VALUE
-  set /A TOOLSET_LIST_INDEX+=1
+rem load versions from file
+for /F "usebackq eol=# tokens=1,* delims=|" %%i in ("%CONFIG_FILE_IN%") do (
+  set "TOOLSET_ROOT_DIR=%%i"
+  set "TOOLSET_BIN_DIR=%%j"
+  call :PROCESS_FIELDS
 )
 
 pause
 
 exit /b 0
 
-:PROCESS_FIELD_VALUE
-set /A TOOLSET_LIST_INDEX_REMAINDER=TOOLSET_LIST_INDEX %% 2
-
-if %TOOLSET_LIST_INDEX_REMAINDER% EQU 0 (
-  set "TOOLSET_ROOT_DIR=%FIELD_VALUE%"
-  exit /b 0
-)
-
-set FIELD1_INDEX=1
-
-:FIELD1_LOOP
-set "FIELD1_VALUE="
-for /F "eol=	 tokens=%FIELD1_INDEX% delims=|" %%i in (%FIELD_VALUE%) do set "FIELD1_VALUE=%%i"
-if "%FIELD1_VALUE%" == "" exit /b 0
-
-set "TOOLSET_BIN_ROOT=%TEST_ROOT%%TOOLSET_ROOT_DIR%/%FIELD1_VALUE%"
+:PROCESS_FIELDS
+set "TOOLSET_BIN_ROOT=%TEST_ROOT%%TOOLSET_ROOT_DIR%/%TOOLSET_BIN_DIR%"
 set "TOOLSET_BIN_ROOT=%TOOLSET_BIN_ROOT:/=\%"
 
 call :TEST
-
-set /A FIELD1_INDEX+=1
-
-goto FIELD1_LOOP
+exit /b
 
 :TEST
 call :CMD "%%TOOLSET_BIN_ROOT%%\cmake.exe" --version

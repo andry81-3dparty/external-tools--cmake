@@ -1,3 +1,6 @@
+2019.06.16:
+* new: `versions.lst` file to explicitly list of is used versions
+
 2019.06.10:
 * new: changelog file
 * new: initial cmake versions for Windows 32/64 and Linux x86_64 platforms: 3.14.0, 3.14.5

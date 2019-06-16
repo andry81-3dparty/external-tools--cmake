@@ -15247,3 +15247,4 @@ kitware/win64/3.14.5/share/cmake-3.14/editors/vim/indent/cmake.vim -text
 kitware/win64/3.14.5/share/cmake-3.14/editors/vim/syntax/cmake.vim -text
 kitware/win64/3.14.5/share/cmake-3.14/include/cmCPluginAPI.h -text
 /test_version.bat -text
+/versions.lst -text

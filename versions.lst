@@ -1,0 +1,5 @@
+# base_dir   | bin_dir
+kitware/win32|3.14.0/bin
+kitware/win64|3.14.0/bin
+kitware/win32|3.14.5/bin
+kitware/win64|3.14.5/bin
