@@ -6,8 +6,9 @@
 2. SOURCES
 2.1. Source files
 2.2. Download links
-3. TESTS
-4. AUTHOR
+3. EXTERNALS
+4. TESTS
+5. AUTHOR
 
 -------------------------------------------------------------------------------
 1. DESCRIPTION
@@ -22,6 +23,7 @@ sources. Collected together for testing purposes.
 -------------------------------------------------------------------------------
 2.1. Source files
 -------------------------------------------------------------------------------
+https://gitlab.kitware.com/cmake/cmake
 https://cmake.org/files/
 
 -------------------------------------------------------------------------------
@@ -31,7 +33,19 @@ https://cmake.org/files/
   https://cmake.org/download/
 
 -------------------------------------------------------------------------------
-3. TESTS
+3. EXTERNALS
+-------------------------------------------------------------------------------
+To checkout externals you must use the
+[vcstool](https://github.com/dirk-thomas/vcstool) python module.
+
+NOTE:
+  To install the module from the git repository:
+
+  >
+  python -m pip install git+https://github.com/dirk-thomas/vcstool
+
+-------------------------------------------------------------------------------
+4. TESTS
 -------------------------------------------------------------------------------
 The directory does include only simple tests just to ensure that the
 executables can be invoked.
@@ -40,6 +54,6 @@ The full tests are part of another projects:
 * `tacklelib/cmake_tests` or `tacklelib--cmake_tests`
 
 -------------------------------------------------------------------------------
-4. AUTHOR
+5. AUTHOR
 -------------------------------------------------------------------------------
 andry at inbox dot ru

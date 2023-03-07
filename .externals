@@ -1,11 +1,13 @@
 repositories:
 
   _externals/3_14_x:
-    type:         git
-    url:          .
-    version:      3_14_x
+    type:             git
+    url:              https://github.com/andry81-3dparty/external-tools--cmake
+    version:          3_14_x
+    fetch-to-branch:  3_14_x
 
   _externals/3_15_x:
-    type:         git
-    url:          .
-    version:      3_15_x
+    type:             git
+    url:              https://github.com/andry81-3dparty/external-tools--cmake
+    version:          3_15_x
+    fetch-to-branch:  3_15_x
