@@ -1,0 +1,3 @@
+2023.03.07:
+* new: standalone branch for 3_x versions
+* changed: README_EN.txt, versions.txt, test_version.bat, .github/*: moved and merged from child branches
